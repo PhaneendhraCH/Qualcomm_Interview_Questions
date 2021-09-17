@@ -1,0 +1,41 @@
+/*
+Write a C program to toggle nth bit of a number.
+
+ToggleBit:
+
+if bit = 0, set to 1
+if bit = 1, set to 0
+
+Left shift 1 with Bit and perform XOR with Number
+Number^(1<<bit)
+
+*/
+
+#include <stdio.h>
+
+void Tooglebit(int num,int bit){
+    int newnum;
+    
+    newnum = num ^ (1<<bit);
+    printf("Bit set successfully.\n\n");
+    printf("Number before setting %d bit: %d (in decimal)\n", bit, num);
+    printf("Number after setting %d bit: %d (in decimal)\n", bit, newnum);
+    
+}
+
+int main()
+{
+    int j, n, newj;
+
+    /* Input number from user */
+    printf("Enter any number: ");
+    scanf("%d", &j);
+
+    /* Input bit position you want to set */
+    printf("Enter nth bit to set (0-31): ");
+    scanf("%d", &n);
+
+    /* Left shift 1, n times and perform bitwise OR with j */
+    Tooglebit(j,n);
+    return 0;
+}
