@@ -1,0 +1,26 @@
+#include<stdio.h>
+
+void binary(unsigned int n)
+{
+	unsigned int mask=64; // 64 = 64 has 7 bits 1000000, seven bit representation
+	while(mask)
+	{
+		//printf("%ld\n",mask);
+		printf("%d",(n&mask)?1:0);
+		mask=mask>>1;
+	}
+	printf("\n");
+}
+
+int main()
+{
+	unsigned int n=0;
+	scanf("%d",&n);
+	binary(n);
+	n = ~n;
+	printf("%d\n",n);
+	
+	binary(n);
+	
+	return 0;
+}
