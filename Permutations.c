@@ -1,8 +1,8 @@
 /*
-
 permutations : 7 8 9 (List)
                7,8,9,78,79,89,789 (Possible Combinations)
-
+               
+               Applying XOR(^) operations on all the possible combinations
 */
 
 #include <stdio.h>
@@ -14,7 +14,7 @@ void xoropo(int arr[],int start,int end){
     
         int i,j;
         XorArr[ind] = arr[start];
-        printf("%d\n",arr[start]);
+        printf("%d^",arr[start]);
         ind++;
         
         for(i=start,j=end-1;j>=0;j--){
@@ -22,9 +22,9 @@ void xoropo(int arr[],int start,int end){
                 break;
             }
             XorArr[ind] = arr[i]^arr[j];
-            printf("%d %d",arr[i],arr[j]);
+            printf("(%d^%d)^",arr[i],arr[j]);
             ind++;
-            printf("\n");
+            //printf("\n");
         }
 }
 
@@ -39,15 +39,20 @@ int main()
 {
     
     int a[3] = {7,8,9},result=0;
-        
-    partition(a,Max);
     
+    printf("Expression : ");
+    partition(a,Max);
+    printf("(");
     for(int j=0;j<Max;j++)
         {
             result^=a[j]; 
-            printf("%d ",a[j]);
+            if(!(j==Max-1))
+                printf("%d^",a[j]);
+            else
+                printf("%d",a[j]);
             //printf("Result(3) = %d\n",result);
         }
+        printf(")");
     
     for(int i=0;i<ind;i++){
         
