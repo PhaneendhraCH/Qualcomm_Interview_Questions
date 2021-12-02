@@ -31,6 +31,12 @@ int main()
         }
     }
 
+    if (max_two == a[0]){
+        printf("No second largest number \n");
+    }
+    else{
     printf("Second Largest : %d Largest : %d\n",max_two,max);
+        
+    }
     return 0;
 }
